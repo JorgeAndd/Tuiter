@@ -1,0 +1,21 @@
+services:
+  database:
+    image: postgres:latest
+    container_name: tuiter-db
+    environment:
+      POSTGRES_DB: ${TUITER_DB}
+      POSTGRES_USER: ${TUITER_USER}
+      POSTGRES_PASSWORD: ${TUITER_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - twitter_data:${TUITER_DATA}
+    networks:
+      - twitter-network
+
+networks:
+  twitter-network:
+    driver: bridge
+
+volumes:
+  twitter_data:
