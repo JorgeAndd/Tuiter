@@ -12,7 +12,15 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User createUser(User user) {
+    public User registerUser(User user) {
+        if (userRepository.existsByUsername(user.getUsername())) {
+            throw new RuntimeException("Username is already taken");
+        }
+
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new RuntimeException("Email is already in use");
+        }
+
         return userRepository.save(user);
     }
 

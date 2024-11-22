@@ -5,7 +5,7 @@
 TUITER_DB=DATABASE_NAME
 TUITER_USER=USER_NAME
 TUITER_PASSWORD=PASSWORD
-TUITER_DATA="VOLUME_LOCATION"
+TUITER_DATA="/d/location/of/database/"
 ```
 
 - Create an `application-dev.properties` file on the project root. This will be the configuration for setting up the database connection
@@ -19,7 +19,7 @@ spring.datasource.password=PASSWORD
 ### To start database using Docker 
 - From infra folder:  
 `
-docker-compose -up -d
+docker-compose up -d
 `
 
 ### To start Spring project

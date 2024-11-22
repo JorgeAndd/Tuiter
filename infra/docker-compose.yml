@@ -9,13 +9,13 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - twitter_data:${TUITER_DATA}
+      - tuiter_data:${TUITER_DATA}
     networks:
-      - twitter-network
+      - tuiter-network
 
 networks:
-  twitter-network:
+  tuiter-network:
     driver: bridge
 
 volumes:
-  twitter_data:
+  tuiter_data:
